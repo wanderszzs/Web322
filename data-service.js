@@ -15,7 +15,9 @@ module.exports.initialize = function(){
             }else{
                 employees = JSON.parse(data);
                 empCount = employees.length;
-                
+                if (employees.length == 0) {
+                    reject("No employees data in the database");
+                } else {
                     fs.readFile('./data/departments.json', (err, data) => {
                     
                     if (err) {
